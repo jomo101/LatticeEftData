@@ -1,11 +1,15 @@
 # LatticeEftData
-Generated finite-volume spectrum, matrix elements, and fitted scattering amplitude for Lattice EFT for project in ArXiv:2602.20373
+Generated finite-volume spectrum, matrix elements, and fitted scattering amplitude for Lattice EFT for project in [arXiv:2602.20373](https://arxiv.org/abs/2602.20373)
 
-Contains a json and txt file, calculations for fixed mass (M=50) and various box sizes (L^3) and couplings (c).
-Errors are includes with mean values as quantity = mean value (error)
-All parametrizations for scattering amplitude are using ERE -> pcotd = a + b * p2,
-  provided with a,b with error
-boosts used are  (0,0,0), (0,0,1), (1,1,0), (1,1,1)
+Contains a json and txt file, calculations for fixed mass (M=50) and various box sizes (L^3) and couplings (c>0.43).
+For each quantity mean and errors are included in the format: mean value (error)
+All parametrizations for scattering amplitude are using effective range parameterization, with \
+$$
+pcotd = a + b * p^2
+$$
+, where $p^2$ is the squared of the relative momentum of the two-nucleon system in the center of mass frame,
+and $a,b$ are parameters provided with error.
+The lattice momentum provided are  (0,0,0), (0,0,1), (1,1,0), (1,1,1).
 Format:
 1. first section is calq, which contains single L,c,boost data for analysis
 calq (calculated spectrum input) {
@@ -26,9 +30,8 @@ Results contains the formalism-specific calculation going from
 boost a -> boost b
 where we fix boost a to be (0,0,0)
 Format:
-Errors included as pm on the mean value, ie quantity= mean value +- error
 All quantities done for the mu=0 (timelike) component.
-All quantities have be redefined to absort bare scattering amplitude dependence
+All quantities have been redefined to absorb scattering amplitude dependence so that they are real.
 Result for L=latt_size, c=coupling
 { boost_a :
   { boost_b:
@@ -47,8 +50,6 @@ Results for fitting parametrization of phase shift data using the finite-volume 
 using data for coupling with three different lattice sizes (6,8,10) for a simulataneous fit
 with each boost considered.
 Format:
-*Note: fir parameters for same coupling, different lattice size are identical
-** parametrization: a + b * q^2
-Fit parameters for L=latt_size, c=coupling
-[ a pm error, b pm error ]
+* Note: parameters for same coupling and different lattice size are identical.
+
 
