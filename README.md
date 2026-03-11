@@ -4,7 +4,7 @@ Generated finite-volume spectrum, matrix elements, and fitted scattering amplitu
 Contains a json and txt file, calculations for fixed mass (M=50) and various box sizes (L^3) and couplings (c>0.43).
 For each quantity mean and errors are included in the format: mean value (error)
 All parametrizations for scattering amplitude, i.e. for the phaseshift, are using effective range parameterization, with \
-$ a + b * p^2 $ \
+$$a + b * p^2$$ \
 where $p^2$ is the squared of the relative momentum of the two-nucleon system in the center of mass frame,
 and $a,b$ are parameters provided with error.
 
